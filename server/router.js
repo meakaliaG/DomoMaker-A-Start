@@ -1,4 +1,5 @@
 const controllers = require('./controllers');
+const mid = require('./middleware');
 
 const router = (app) => {
     app.get('/login', controllers.Account.loginPage);
@@ -8,7 +9,10 @@ const router = (app) => {
     app.post('/signup', controllers.Account.signup);
 
     app.get('/logout', controllers.Account.logout);
+
     app.get('/maker', controllers.Domo.makerPage);
+    app.post('/maker', controllers.Domo.makeDomo);
+
     app.get('/', controllers.Account.loginPage);
 };
 
